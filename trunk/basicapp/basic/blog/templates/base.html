@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>	
+	<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+<!--	<style type = "text/css">
+	 body	{ background:url(img/bg.gif) top center repeat-y #666;	  font-family: Arial,sans-serif;   	 color: #333; 	 font-size:10pt; 	 margin:0;}  	a:link, a:visited, a:active	{ background-color: inherit; color:#08c; text-decoration: none; }	a:hover	{ background-color: inherit; text-decoration: none; color:#f80;}	ul 	{ list-style:none; margin-left:10px; padding:1px;}	li	{ padding:0 0 8px 10px; background: url(img/arw.gif) 0 3px no-repeat;}	li a:link, li a:visited, li a:active	{ background-color: inherit; color:#333; text-decoration: none; }	li a:hover	{ background-color: inherit; text-decoration: none; color:#f80;}	strong	{ background:inherit; color:#08c; font-weight:normal;}	h1	{font-size:18pt; font-weight:normal; margin:0;}	h2	{font-size:8pt; font-weight:normal; margin:0; text-transform:uppercase;}	#header	{ width:935px; margin:auto; background:url(img/headerbg.gif) 0 0 no-repeat #09c; color:#fff;	  font-size:20pt; padding:20px 0 20px 15px; letter-spacing:3px; text-align:center; text- transform:uppercase;}  	#menu	{ width:750px; margin:auto; height:25px; background:#f80; color:inherit; font-size:9pt; clear:both;}	#body	{ width:950px; margin:auto; background:#eee; color:inherit;}  	#sidebar	{ width:415px; padding:10px; background:#eee; float:right; color:inherit; font-size:80%;}	#footer	{ width:950px; margin:auto; padding:5px 0;text-align:center; background:#09c; color:#fff; font-size:8pt;   border-top:#f80 2px solid;}	#footer a:link, #footer a:visited, #footer a:active	{ background-color: inherit; color:#fff; text-decoration: none;}	#footer a:hover	{ background-color: inherit; text-decoration: underline; color:#f90;}	.header	{ font-size:8pt; font-weight:normal; letter-spacing:0; text-transform:none; padding-top:10px;}  	.menu 	{ width:150px; height:25px; float:left; font-family: Tahoma,sans-serif;	text-align:center; text-transform:uppercase; }	.menu a:link, .menu a:visited, .menu a:active	{ background:inherit; text-decoration: none; color:#fff;display:block; height:17px; padding-top:8px; font-	weight:bold; font-size:7pt;}	.menu a:hover	{ background:#f96; text-decoration:none; color:#069;}	.content	{ width:910px;float:left; padding:20px; background-color:#fff; color:inherit; text-align:justify;}
+	
+	.content_title
+	{width:910px; float:left; padding:20px; background-color:#000; color:#fff; text-align:justify;}	.topside	{ padding:15px 0 5px 0; font-size:10pt; letter-spacing:2px; font-weight:normal; border-bottom:#08c 2px dotted;}	.footer 	{ clear:both; }	.img	{border:0; float:left; margin-right:10px;}	.center	{text-align:center; padding-top:5px;}
+
+ 	.older
+	{text-align:right  ; color: #8D38C9; font-size : 22pt}
+
+	.newer
+	{text-align:left  ; color: #8D38C9; font-size : 22pt}
+
+</style>
+-->
+</head>
+
+
+
+<body>
+
+
+<div id = "header">
+	<div class = "header_title">Kharagpur Group of Programmers</div>
+	<div class = "header">A description or subtitle of your KGP site goes here.</div>
+	<div class = "signinout">Welcome {% if user.is_authenticated %} <font color ="#000">{{ user.username }}</font><br><a href = "/account/signout/"/>|Sign Out</a>
+		<a href ="/account/password/">|Change Password|</a>
+		{% else %} <font color ="#000">Guest </font><br><a href = "/account/signin/complete/"/>Sign In</a><a href ="/account/signup/">|Sign Up|</a>{% endif %}  </div></div>
+
+<div id="menu">
+	<div class="menu"><a href="/blog">Blogs</a></div><div class="menu"><a href="/downloads">Downloads</a></div>
+	<div class="menu"><a href="/forum">Forums</a></div><div class="menu"><a href="/cab">Snippets</a></div><div class="menu"><a href="/videos">Videos</a></div><div class="menu"><a href="/wiki">Wiki</a></div>
+</div>
+
+
+	 <div id="body">    
+        	{% block body %}      
+    		 <div class = "content_title">	
+   		        {% block content_title %}{% endblock %}
+   		 </div>
+   	         <div class="content">
+	   	        {% block content %}{% endblock %}	  
+    	         </div>
+	        {% endblock %}
+
+ 	 <div id="sidebar">					
+		{% block monthlist %}{% endblock %}		
+		{% block categorylist %}{% endblock %}
+		{% block video_taglist %}{% endblock %}
+ 	 </div>
+ 
+	 </div>	
+	
+<div class="footer"></div>
+<div id="footer"><p>&copy; Copyright 2009 Kharagpur Group of Programmers. All Rights Reserved.</div>
+
+
+</body>
+</html>

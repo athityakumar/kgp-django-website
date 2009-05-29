@@ -1,0 +1,7 @@
+<!--{% block monthlist %}
+   <ul class="link_list">
+		    {% for month,year in months %}
+	    		<li><a href="/blog/{{year}}/{{month}}"> {{month}} {{year}}</a></li>
+		    {% endfor %}		    
+   </ul>
+{% endblock %}-->
