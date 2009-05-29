@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block css_style %}	
+	<link rel="stylesheet" href="wikiapp.css">
+{% endblock %}
+
+{% block content_title %}
+    <div id="head">
+      <h1>Wiki {% block title_wiki %}{%endblock %} </h1>
+     <!-- <a href="{% url wiki_list %}">{% trans "List all articles" %}</a>      -->
+      {% block titleoptions_wiki %}{%endblock %}
+      {% include "wiki/searchbox.html" %}
+    </div>
+{% endblock %}
+    
+{% block content %}   
+     
+     
+    <div id="article">
+      {% include "wiki/messages.html" %}
+      {% block content_wiki %}{% endblock %}
+    </div>
+    
+{% endblock %}
