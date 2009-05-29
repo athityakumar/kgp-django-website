@@ -1,0 +1,24 @@
+{% extends 'wiki/base.html' %}
+{% load i18n %}
+
+{% block title_wiki %}
+    {% trans "- Edit" %}
+{% endblock %}
+
+{% block content_wiki %}	
+	{% if user.is_authenticated %}
+	<form action="" method="post">
+
+        {{ form.as_p }}
+
+		<div class="submit">
+			<input type="submit" value= "Save" />
+		</div>
+
+	</form>
+	{% else %}
+	You need to <a href = "/account/signin/complete/">log in</a> to create an article 
+	{% endif %}
+{% endblock %}
+
+
