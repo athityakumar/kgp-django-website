@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>	
+	<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+</head>
+
+
+<body>
+
+
+<div id = "header">
+	<div class = "header_title">Kharagpur Group of Programmers</div>
+	<div class = "header">A description or subtitle of your KGP site goes here.</div>
+	<div class = "signinout">Welcome {% if user.is_authenticated %} <font color ="#000">{{ user.username }}</font><br><a href = "/account/signout/"/>|Sign Out</a>
+		<a href ="/account/password/">|Change Password|</a>
+		{% else %} <font color ="#000">Guest </font><br><a href = "/account/signin/complete/"/>Sign In</a><a href ="/account/signup/">|Sign Up|</a>{% endif %}  </div></div>
+
+<div id="menu">
+	<div class="menu"><a href="/blog"">Home</a></div><div class="menu"><a href="/blog">Blog</a></div><div class="menu"><a href="/downloads">Downloads</a></div>
+	<div class="menu"><a href="/forum">Forum</a></div><div class="menu"><a href="#">Links</a></div>
+</div>
+
+  <div id="body">
+      <div class = "content_title">
+        <h1>Downloads</h1>
+      </div>
+      <div class="content">
+      <ul>	
+        {% for file in file_list %}
+		<li><a href="files{{ file }}">{{ file }}</a></li>
+	{% endfor %}
+      </ul>
+      </div>
+  </div>
+
+<div class="footer"></div>
+<div id="footer"><p>&copy; Copyright 2009 Kharagpur Group of Programmers. All Rights Reserved.
+</div>
+
+</body>
+</html>-->
+
+
+{% block content_title %}
+	<h1>Downloads</h1>
+{% endblock %} 
+
+{% block content %}
+	<ul>	
+        {% for file in file_list %}
+		<li><a href="files{{ file }}">{{ file }}</a></li>
+	{% endfor %}
+      </ul>
+{% endblock %}
