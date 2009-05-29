@@ -1,0 +1,5 @@
+:mod:`creoleparser.dialects`
+****************************
+
+.. automodule:: creoleparser.dialects
+   :members: create_dialect, creole10_base, creole11_base
