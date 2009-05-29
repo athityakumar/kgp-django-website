@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+{% load i18n %}
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>	
+	<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+
+<style type='text/css'>
+<!--
+
+#djangoForumBody {
+    width: 90%;
+    margin: 0px auto;
+    text-align: left;
+}
+
+#djangoForumList,
+#djangoForumThreadList,
+#djangoForumThreadPosts {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#djangoForumList td,
+#djangoForumThreadList td,
+#djangoForumThreadPosts td {
+    border: solid #777 1px;
+    padding: 6px;
+}
+
+#djangoForumList .djangoForumListDetails {
+    width: 70%;
+}
+
+#djangoForumList .djangoForumListDetails strong {
+    font-size: 120%;
+}
+
+#djangoForumList .djangoForumListDetails .djangoForumStats {
+    font-size: 80%;
+}
+
+.djangoForumListLastPost,
+.djangoForumThreadLastPost {
+    background-color: #ccc;
+    border-bottom: solid #777 1px;
+}
+
+#djangoForumList th,
+#djangoForumThreadList th,
+#djangoForumThreadPosts th {
+    background-color: #555;
+    border: solid #777 1px;
+    color: #fff;
+    text-align: left;
+    padding: 4px;
+}
+
+#djangoForumThreadPosts th {
+    width: 20%;
+}
+
+#djangoForumBreadcrumbs {
+    padding: 20px;
+}
+
+#djangoForumBody label {
+    font-size: 110%;
+    font-weight: bold;
+    display: block;
+    padding: 4px;
+}
+
+#djangoForumThreadPostDetail {
+    width: 20%;
+}
+.djangoForumPagination {
+    display: inline;
+
+.username {
+   font-weight : bold;
+   color : #f80;
+}
+
+}
+-->
+</style>
+</head>
+
+
+
+<body>
+
+
+<div id = "header">
+	<div class = "header_title">Kharagpur Group of Programmers</div>
+	<div class = "header">A description or subtitle of your KGP site goes here.</div>
+	<div class = "signinout">Welcome {% if user.is_authenticated %} <font color ="#000">{{ user.username }}</font><br><a href = "/account/signout/"/>|Sign Out</a>
+		<a href ="/account/password/">|Change Password|</a>
+		{% else %} <font color ="#000">Guest </font><br><a href = "/account/signin/complete/"/>Sign In</a><a href ="/account/signup/">|Sign Up|</a>{% endif %}  </div></div>
+
+<div id="menu">
+	<div class="menu"><a href="/blog">Blogs</a></div><div class="menu"><a href="/downloads">Downloads</a></div>
+	<div class="menu"><a href="/forum">Forums</a></div><div class="menu"><a href="/cab">Snippets</a></div><div class="menu"><a href="/videos">Videos</a></div><div class="menu"><a href="/wiki">Wiki</a></div>
+</div>
+
+
+<div id = 'body_forum'>
+	<div class='content_title'><h1>Forums<h1>
+		<h5><a href='/blog'>Home</a>&raquo; <a href='{% url forum_index %}'>Forums
+					</a>{% block breadcrumbs %}{% endblock %}</h5>
+	</div>
+
+	<div class= 'content_forum' >{% block content %}{% endblock %}</div>
+</div>
+</div>
+	
+<div class="footer"></div>
+<div id="footer"><p>&copy; Copyright 2009 Kharagpur Group of Programmers. All Rights Reserved.</div>
+
+
+</body>
+</html>
