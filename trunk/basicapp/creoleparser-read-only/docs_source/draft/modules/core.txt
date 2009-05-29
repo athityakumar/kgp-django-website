@@ -1,0 +1,7 @@
+:mod:`creoleparser.core` 
+************************
+
+.. automodule:: creoleparser.core
+
+   .. autoclass:: creoleparser.core.Parser
+      :members: __init__, generate, render, __call__
