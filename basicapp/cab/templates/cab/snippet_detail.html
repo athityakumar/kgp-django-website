@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content_title %}<h1>Snippet : {{object.title}}<h1><h5><a href = "/cab/">All snippets</a> | <a href = "/cab/languages/">All snippets by languages</a> | <a href = "/cab/users/">All snippets by users</a> | <a href = "/cab/add/">Add a snippet</a></h5>{% endblock %}
+
+{% block content_header %}{{ object.title }}{% endblock %}
+{% block css_style %}
+<style type="text/css">
+{{ css_highlight|safe }}
+</style>
+{% endblock %}
+{% block content %}
+<div class = "snippet_header"><br><br>Snippet : </div>
+{% load snippets %}
+{{ object.highlighted_code|safe }}
+
+{% if user.is_authenticated %}
+{% ifequal user.id object.author.id %}
+<ul>
+<li><a href="/cab/edit/{{ object.id }}">Edit this snippet</a></li>
+<li><a href="/cab/{{ object.id }}/download/">Download this snippet</a>(you might need to change the extension to make the code work)</li>
+</ul>
+{% endifequal %}
+{% endif %}
+
+
+<div class = "snippet_header"><br><br>Snippet Information : </div>
+<dl>
+<dt><div class = "snippet_info">Title:     &nbsp &nbsp &nbsp<font color = "#08c">{{ object.title }}</font></dt></div>
+<dt><div class = "snippet_info">Author:       &nbsp &nbsp <font color = "#08c">{{ object.author.username }}</font></dt></div>
+<dt><div class = "snippet_info">Posted:        &nbsp &nbsp &nbsp<font color = "#08c">{{ object.pub_date|date:"F j, Y"}}  at {{object.pub_date|time}}</font></dt></div>
+<dt><div class = "snippet_info">Language:       &nbsp &nbsp &nbsp<font color = "#08c">{{ object.language.name }}</font></dd></div>
+<!--<dt><div class = "snippet_info">Tags:     {% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a> {% endfor %}</dt></div>-->
+<dt>{% autoescape off%}<div class = "snippet_info">Description:      <font color = "#08c">{{ object.description_html }}</font></dt></div>{%endautoescape%}
+</dl>
+
+<div id="comments">
+<div class = "snippet_header"><br><br>Comment : </div>
+{% load comments %}
+{% load safe_markup %}
+{% get_comment_list for cab.snippet object.id as comment_list %}
+<dl>
+{% for comment in comment_list %}
+<dt id="c{{ comment.id }}"><h5><font color = "#08c">{{ comment.user.username }}</font> (on {{ comment.submit_date|date:"F j, Y"}} at {{comment.submit_date|time }}) said:</h5></dt>
+{% autoescape on %}{{ comment.comment }} <br> {% endautoescape %}
+{% endfor %}
+</dl>
+<br><br>
+{% render_comment_form for cab.snippet object.id %}
+</div>
+{% endblock %}
+
+
+
