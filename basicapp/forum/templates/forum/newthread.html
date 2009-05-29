@@ -1,0 +1,26 @@
+{% extends "forum_basictemplate.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with forum.title as title %}New Thread in {{ title }}{% endblocktrans %}{% endblock %}
+
+{% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="{{ forum.title }} Posts via RSS" href="{% url forum_index %}rss/{{ forum.slug }}/" />
+<link rel="alternate" type="application/atom+xml" title="{{ forum.title }} Posts via ATOM" href="{% url forum_index %}atom/{{ forum.slug }}/" />
+{% endblock %}
+
+{% block pagetitle %}{% blocktrans with forum.title as title %}New Thread in {{ title }}{% endblocktrans %}{% endblock %}
+
+{% block breadcrumbs %} {% for title, url in forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a> {% endfor %} &raquo; {% trans "New Thread" %}{% endblock %}
+
+
+{% block content %}
+
+<h3>{% trans "Create a Thread" %}</h3>
+<form method='post' action='./'>
+<!--{% if form.errors %}<ul>{{ form.errors.as_ul }}</ul>{% endif %}-->
+<h5>{% trans "Posting as " %}<font color = "#f80">{{ user.username }}</font></h5>
+{{ form.as_p }}
+<p><input type='submit' value='{% trans "Post" %}' /></p>
+</form>
+
+{% endblock %}

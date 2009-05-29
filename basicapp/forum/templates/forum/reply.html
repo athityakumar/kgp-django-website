@@ -1,0 +1,21 @@
+{% extends "forum_basictemplate.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with thread.title as title %}Reply to thread  "{{ title }}"{% endblocktrans %}{% endblock %}
+
+{% block pagetitle %}{% blocktrans with thread.title as title %}Reply to Thread "{{ title }}"{% endblocktrans %}{% endblock %}
+
+{% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> &raquo; Reply{% endblock %}
+
+
+{% block content %}
+
+<h3>{% trans "Reply to Thread" %}</h3>
+<form method='post' action='./'>
+<!--{% if form.errors %}<ul><h5>{{ form.errors.as_ul }}</h5></ul>{% endif %}-->
+<h5>{% trans "Posting as " %}<font color="#f80">{{ user.username }}</font>
+{{ form.as_p }}</h5>
+<p><input type='submit' value='{% trans "Post" %}' /></p>
+</form>
+
+{% endblock %}
