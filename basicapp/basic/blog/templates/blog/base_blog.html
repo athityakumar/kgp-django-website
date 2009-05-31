@@ -1,4 +1,4 @@
-{% extends "/home/sumit/kgp-initial/basicapp/basic/blog/templates/base.html" %}
+{% extends "baseofblog.html" %}
 
 {% block body_class %}blog{% endblock %}
 
@@ -7,12 +7,12 @@
       	   <div class="topside">Categories</div>	
 	   <ul class="link_list">
   		    {% for title in category_list  %}
-	    			<li><a href="/blog/categories/{{ title }}">{{ title }}</a></li>
+	    			<li><a href="/kgp/blog/categories/{{ title }}">{{ title }}</a></li>
 		    {% endfor %}
    	   </ul>
 	   <div class="topside">Other Options</div>
     	   <ul class= "link_list">
-		<li><a href = "/blog/search/">Search</a></li>
+		<li><a href = "/kgp/blog/search/">Search</a></li>
 	   </ul>
   {% endif %}
 {% endblock %}
@@ -22,7 +22,7 @@
    	<div class="topside">Archive</div>
         <ul class="link_list">
 		    {% for month,year in months %}
-	    		<li><a href="/blog/{{year}}/{{month}}"> {{month}} {{year}}</a></li>
+	    		<li><a href="/kgp/blog/{{year}}/{{month}}"> {{month}} {{year}}</a></li>
 		    {% endfor %}		    
         </ul>	
     {% endif %}

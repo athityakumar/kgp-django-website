@@ -1,7 +1,7 @@
 # Django settings for basicapp project.
 from django.utils.translation import ugettext_lazy as _
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -12,7 +12,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = '/home/sumit/kgp-initial/basicapp.db'             # Or path to database file if using sqlite3.
+DATABASE_NAME = '/var/www/kgp-initial/basicapp.db'             # Or path to database file if using sqlite3.
 DATABASE_USER = ''             # Not used with sqlite3.
 DATABASE_PASSWORD = ''         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
@@ -72,7 +72,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	'/home/sumit/kgp-initial/basicapp/templates/',
+	'/var/www/kgp-initial/basicapp/templates/',
 )
 
 INSTALLED_APPS = (
@@ -106,14 +106,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
             'django_authopenid.context_processors.authopenid',
         )
 
-LOGIN_REDIRECT_URL = '/forum/'
+LOGIN_REDIRECT_URL = '/kgp/blog/'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
-#EMAIL_HOST = 'localhost'
-#DEFAULT_FROM_EMAIL = 'webmaster@localhost'  
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+DEFAULT_FROM_EMAIL = 'kgp-noreply@maillist-cse.iitkgp.ernet.in'  
 
-LOCAL_DEVELOPMENT = True
+LOCAL_DEVELOPMENT = False
 
 WIKI_MARKUP_CHOICES =  ( ('mrk', _(u'Markdown')), )
 

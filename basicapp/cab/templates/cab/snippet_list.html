@@ -2,14 +2,14 @@
 
 {% block title %}All snippets{% endblock %}
 
-{% block content_title %}<h1>Snippets<h1><h5><a href = "/cab/">All snippets</a> | <a href = "/cab/languages/">All snippets by languages</a> | <a href = "/cab/users/">All snippets by users</a> | <a href = "/cab/add/">Add a snippet</a></h5>{% endblock %}
+{% block content_title %}<h1>Snippets<h1><h5><a href = "/kgp/cab/">All snippets</a> | <a href = "/kgp/cab/languages/">All snippets by languages</a> | <a href = "/kgp/cab/users/">All snippets by users</a> | {% if user.is_authenticated %} <a href = "/kgp/cab/add/">Add a snippet</a> {% endif %}</h5>{% endblock %}
 
 {% block content %}
 {% if object_list %}
 <ul>
 {% for snippet in object_list %}
 <p>{{ snippet.get_absolute_url }}</p>
-<li><a href="/cab/{{ snippet.id }}">{{ snippet.title }}</a> (<a href="/cab/languages/{{snippet.language.language_code}}">{{ snippet.language.language_code }}</a>) by <a href="/cab/users/{{ snippet.author.username }}/">{{ snippet.author.username }}</a> {{ snippet.pub_date|timesince }} ago</li>
+<li><a href="/kgp/cab/{{ snippet.id }}">{{ snippet.title }}</a> (<a href="/kgp/cab/languages/{{snippet.language.language_code}}">{{ snippet.language.language_code }}</a>) by <a href="/kgp/cab/users/{{ snippet.author.username }}/">{{ snippet.author.username }}</a> {{ snippet.pub_date|timesince }} ago</li>
 {% endfor %}
 </ul>
 <p class="pagination">{% if has_previous %}<a href="?page={{ previous }}">&lt; Previous {{ results_per_page }}</a>{% endif %}&nbsp;&nbsp;{% if has_next %}<a href="?page={{ next }}">Next {{ results_per_page }} &gt;</a>{% endif %}

@@ -42,7 +42,7 @@ def add_snippet(request):
             if original_id:
                 new_snippet.original_id = original_id
             new_snippet.save()
-            return HttpResponseRedirect('/cab/')
+            return HttpResponseRedirect('/kgp/cab/')
     else:
         form = forms.AddSnippetForm()
     return render_to_response('cab/add_snippet_form.html',
@@ -92,7 +92,7 @@ def edit_snippet(request, snippet_id):
             for field in ['title', 'description', 'code', 'tag_list']:
                 setattr(snippet, field, form.cleaned_data[field])
             snippet.save(force_insert = False,force_update = True)
-            return HttpResponseRedirect('/cab/')
+            return HttpResponseRedirect('/kgp/cab/')
     else:
         form = forms.EditSnippetForm(snippet.__dict__)
     return render_to_response('cab/edit_snippet_form.html',
