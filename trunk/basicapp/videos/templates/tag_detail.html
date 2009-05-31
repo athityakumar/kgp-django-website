@@ -1,4 +1,4 @@
-{% extends "/home/sumit/kgp-initial/basicapp/basic/blog/templates/base.html" %}
+{% extends "baseofblog.html" %}
 
 {% block content_title%}
 <h1>Videos tagged {{tag}} </h1>
@@ -11,7 +11,7 @@
 				    <br>{{ video.video_embed_path|safe }}
 				    <br>
 				    <p>Description : {{ video.video_description }}</p>
-			            <p><a href = "/videos/tags/">Tags</a> :  {% for tag in video.video_tag.all %} <a href = "/videos/tags/{{tag}}" >{{tag}}</a> {% endfor %} </p>
+			            <p><a href = "/kgp/videos/tags/">Tags</a> :  {% for tag in video.video_tag.all %} <a href = "/kgp/videos/tags/{{tag}}" >{{tag}}</a> {% endfor %} </p>
 				    <br>				
 			{% endifequal %} 
 		{% endfor %}
@@ -22,7 +22,7 @@
    	<div class="topside">Tags</div>
         <ul class="link_list">
 		    {% for tag in tag_list %}
-	    		<li><a href="/videos/tags/{{tag.name}}"> {{tag}}</a></li>
+	    		<li><a href="/kgp/videos/tags/{{tag.name}}"> {{tag}}</a></li>
 		    {% endfor %}		    
         </ul>	
 {% endblock %}

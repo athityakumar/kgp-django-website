@@ -31,13 +31,13 @@
 <div id = "header">
 	<div class = "header_title">Kharagpur Group of Programmers</div>
 	<div class = "header">A description or subtitle of your KGP site goes here.</div>
-	<div class = "signinout">Welcome {% if user.is_authenticated %} <font color ="#000">{{ user.username }}</font><br><a href = "/account/signout/"/>|Sign Out</a>
-		<a href ="/account/password/">|Change Password|</a>
-		{% else %} <font color ="#000">Guest </font><br><a href = "/account/signin/complete/"/>Sign In</a><a href ="/account/signup/">|Sign Up|</a>{% endif %}  </div></div>
+	<div class = "signinout">Welcome {% if user.is_authenticated %} <font color ="#000">{{ user.username }}</font><br><a href = "/kgp/account/signout/"/>|Sign Out</a>
+		<a href ="/kgp/account/password/">|Change Password|</a>
+		{% else %} <font color ="#000">Guest </font><br><a href = "/kgp/account/signin/complete/"/>Sign In</a><a href ="/kgp/account/signup/">|Sign Up|</a>{% endif %}  </div></div>
 
 <div id="menu">
-	<div class="menu"><a href="/blog">Blogs</a></div><div class="menu"><a href="/downloads">Downloads</a></div>
-	<div class="menu"><a href="/forum">Forums</a></div><div class="menu"><a href="/cab">Snippets</a></div><div class="menu"><a href="/videos">Videos</a></div><div class="menu"><a href="/wiki">Wiki</a></div>
+	<div class="menu"><a href="/kgp/blog">Blogs</a></div><div class="menu"><a href="/kgp/downloads">Downloads</a></div>
+	<div class="menu"><a href="/kgp/forum">Forums</a></div><div class="menu"><a href="/kgp/cab">Snippets</a></div><div class="menu"><a href="/kgp/videos">Videos</a></div><div class="menu"><a href="/kgp/wiki">Wiki</a></div>
 	
 </div>
 

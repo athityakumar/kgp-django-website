@@ -2,12 +2,12 @@
 
 {% block title %}All languages{% endblock %}
 
-{% block content_title %}<h1>All languages<h1><h5><a href = "/cab/">All snippets</a> | <a href = "/cab/languages/">All snippets by languages</a> | <a href = "/cab/users/">All snippets by users</a> | <a href = "/cab/add/">Add a snippet</a></h5>{% endblock %}
+{% block content_title %}<h1>All snippets by languages</h1><h5><a href = "/kgp/cab/">All snippets</a> | <a href = "/kgp/cab/languages/">All snippets by languages</a> | <a href = "/kgp/cab/users/">All snippets by users</a> | {% if user.is_authenticated %} <a href = "/kgp/cab/add/">Add a snippet</a> {% endif %}</h5>{% endblock %}
 
 {% block content %}
 <ul>
 {% for language in object_list %}
-<li><a href="/cab/languages/{{language.name}}">{{ language.name }}</a></li>
+<li><a href="/kgp/cab/languages/{{language.name}}">{{ language.name }}</a></li>
 {% endfor %}
 </ul>
 
@@ -23,7 +23,7 @@
 
 <ol>
 {% for language in top_languages %}
-<li><a href="/cab/languages/{{ language.name}}">{{ language.name }}</a></li>
+<li><a href="/kgp/cab/languages/{{ language.name}}">{{ language.name }}</a></li>
 {% endfor %}
 </ol>
 {% endblock %}

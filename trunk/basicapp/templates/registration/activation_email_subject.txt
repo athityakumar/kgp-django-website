@@ -1,1 +1,1 @@
-{{ site }}. Confirm your registration
+ KGP - KGP Group of Programmers . Confirm your registration

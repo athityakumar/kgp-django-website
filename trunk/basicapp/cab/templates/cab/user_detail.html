@@ -2,13 +2,13 @@
 {% block feeds %}<link rel="alternate" href="/feeds/author/{{ object.username }}/" type="application/atom+xml" title="Feed of snippets by {{ object.username }}" />{% endblock %}
 {% block title %}Snippets by {{ object.username }}{% endblock %}
 
-{% block content_title %}<h1>Snippets by {{ object.username }}</h1><h5><a href = "/cab/">All snippets</a> | <a href = "/cab/languages/">All snippets by languages</a> | <a href = "/cab/users/">All snippets by users</a> | <a href = "/cab/add/">Add a snippet</a></h5>{% endblock %}
+{% block content_title %}<h1>Snippets by {{ object.username }}</h1><h5><a href = "/kgp/cab/">All snippets</a> | <a href = "/kgp/cab/languages/">All snippets by languages</a> | <a href = "/kgp/cab/users/">All snippets by users</a> | {% if user.is_authenticated %} <a href = "/kgp/cab/add/">Add a snippet</a> {% endif %}</h5>{% endblock %}
 
 {% block content %}
 {% if object_list %}
 <ul>
 {% for snippet in object_list %}
-<li><a href="/cab/{{ snippet.id }}">{{ snippet.title }}</a> (<a href="/cab/languages/{{ snippet.language.name }}">{{ snippet.language.name }}</a>) {{ snippet.pub_date|timesince }} ago</li>
+<li><a href="/kgp/cab/{{ snippet.id }}">{{ snippet.title }}</a> (<a href="/kgp/cab/languages/{{ snippet.language.name }}">{{ snippet.language.name }}</a>) {{ snippet.pub_date|timesince }} ago</li>
 {% endfor %}
 </ul>
 
